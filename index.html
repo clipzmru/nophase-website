@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NoPhase | Beyond Trends</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    // Simple countdown timer
+    function countdown() {
+      const end = new Date('2025-07-15T00:00:00').getTime();
+      const x = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = end - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("timer").innerHTML = "Drop Ended";
+        }
+      }, 1000);
+    }
+    window.onload = countdown;
+  </script>
 </head>
 <body class="bg-black text-white font-sans">
 
@@ -12,57 +32,81 @@
   <nav class="flex justify-between items-center px-8 py-4 border-b border-gray-800">
     <h1 class="text-2xl font-bold tracking-widest">NOPHASE</h1>
     <ul class="flex space-x-6 text-sm">
-      <li><a href="#" class="hover:text-gray-400">Shop</a></li>
-      <li><a href="#" class="hover:text-gray-400">Lookbook</a></li>
-      <li><a href="#" class="hover:text-gray-400">About</a></li>
-      <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+      <li><a href="#shop" class="hover:text-gray-400">Shop</a></li>
+      <li><a href="#about" class="hover:text-gray-400">About</a></li>
+      <li><a href="#drops" class="hover:text-gray-400">Drops</a></li>
+      <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="text-center py-24 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?urban,fashion');">
+  <!-- Hero -->
+  <section class="text-center py-24 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?streetwear,urban');">
     <div class="bg-black bg-opacity-60 p-8 rounded">
-      <h2 class="text-5xl font-extrabold mb-4">BEYOND TRENDS</h2>
-      <p class="text-lg text-gray-300 mb-6">Unfiltered streetwear. No labels. No phases.</p>
-      <a href="#" class="bg-white text-black px-6 py-3 font-bold uppercase tracking-wide rounded hover:bg-gray-300">Explore Drop</a>
+      <h2 class="text-5xl font-extrabold mb-4">LIMITLESS STYLE</h2>
+      <p class="text-lg text-gray-300 mb-6">Streetwear made to break the cycle. NoPhase. No rules.</p>
+      <a href="#shop" class="bg-white text-black px-6 py-3 font-bold uppercase rounded hover:bg-gray-300">Shop Now</a>
     </div>
   </section>
 
-  <!-- Featured Products -->
-  <section class="py-16 px-6 max-w-6xl mx-auto">
-    <h3 class="text-3xl font-bold text-center mb-10 uppercase">Latest Drop</h3>
+  <!-- Shop Section -->
+  <section id="shop" class="py-16 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-10 uppercase">Featured Gear</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-      <div class="bg-gray-900 p-4 rounded shadow-lg">
-        <img src="https://source.unsplash.com/300x300/?hoodie,black" class="mb-4 w-full rounded" />
-        <h4 class="text-xl font-semibold">Noir Hoodie</h4>
-        <p class="text-gray-400">$68</p>
+      <div onclick="alert('Sizes: S, M, L, XL\nShipping: 3-5 business days')" class="cursor-pointer bg-gray-900 p-4 rounded shadow-lg">
+        <img src="https://source.unsplash.com/300x400/?hoodie,streetwear" class="mb-4 w-full rounded" />
+        <h4 class="text-xl font-semibold">Street Classic Hoodie</h4>
+        <p class="text-gray-400">$65</p>
       </div>
-      <div class="bg-gray-900 p-4 rounded shadow-lg">
-        <img src="https://source.unsplash.com/300x300/?tshirt,streetwear" class="mb-4 w-full rounded" />
-        <h4 class="text-xl font-semibold">Signal Tee</h4>
-        <p class="text-gray-400">$45</p>
+      <div onclick="alert('Sizes: 28, 30, 32, 34\nShipping: 3-5 business days')" class="cursor-pointer bg-gray-900 p-4 rounded shadow-lg">
+        <img src="https://source.unsplash.com/300x400/?baggy,pants" class="mb-4 w-full rounded" />
+        <h4 class="text-xl font-semibold">Baggy Cargo Pants</h4>
+        <p class="text-gray-400">$55</p>
       </div>
-      <div class="bg-gray-900 p-4 rounded shadow-lg">
-        <img src="https://source.unsplash.com/300x300/?snapback" class="mb-4 w-full rounded" />
-        <h4 class="text-xl font-semibold">Phase Cap</h4>
-        <p class="text-gray-400">$28</p>
+      <div onclick="alert('Sizes: S, M, L\nShipping: 3-5 business days')" class="cursor-pointer bg-gray-900 p-4 rounded shadow-lg">
+        <img src="https://source.unsplash.com/300x400/?oversized,tshirt" class="mb-4 w-full rounded" />
+        <h4 class="text-xl font-semibold">Oversized Graphic Tee</h4>
+        <p class="text-gray-400">$38</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Order Confirmation and Card Info -->
+  <section class="py-16 px-6 bg-gray-950">
+    <div class="max-w-2xl mx-auto">
+      <h3 class="text-2xl font-bold mb-6 text-center uppercase">Order Now</h3>
+      <form class="space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white" />
+        <input type="email" placeholder="Email Address" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white" />
+        <input type="text" placeholder="Card Number" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white" />
+        <input type="text" placeholder="Shipping Address" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white" />
+        <button type="submit" class="bg-white text-black px-6 py-2 font-bold uppercase rounded hover:bg-gray-300">Place Order</button>
+      </form>
     </div>
   </section>
 
   <!-- About Section -->
-  <section class="px-6 py-20 bg-gray-950">
+  <section id="about" class="px-6 py-20 bg-black border-t border-gray-800">
     <div class="max-w-3xl mx-auto text-center">
-      <h3 class="text-3xl font-bold mb-4 uppercase">Our Ethos</h3>
+      <h3 class="text-3xl font-bold mb-4 uppercase">About NoPhase</h3>
       <p class="text-gray-400 text-lg leading-relaxed">
-        NoPhase is a movement. We don’t chase trends — we disrupt them. Designed for those who write their own rules, our gear is crafted to last beyond the season. 
+        NoPhase is a small, independent streetwear brand proudly based in Mauritius. Built on passion, rebellion, and originality — we design pieces that break the cycle of fast fashion and shallow trends. Each drop is a statement. Each stitch carries a message: You don’t follow — you lead. Join the movement. Wear what matters.
       </p>
     </div>
   </section>
 
+  <!-- Limited Drop Timer -->
+  <section id="drops" class="px-6 py-20 bg-gray-950">
+    <div class="text-center">
+      <h3 class="text-3xl font-bold mb-4 uppercase">Limited Drop Ends In</h3>
+      <div id="timer" class="text-4xl font-mono text-red-400"></div>
+      <p class="mt-4 text-gray-400">Don’t sleep on this drop — once it’s gone, it’s gone.</p>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="text-center text-sm text-gray-500 py-8 border-t border-gray-800">
-    &copy; 2025 NoPhase. All rights reserved.
+  <footer id="contact" class="text-center text-sm text-gray-500 py-8 border-t border-gray-800">
+    &copy; 2025 NoPhase. All rights reserved.<br />
+    Contact: contact@nophase.mu
   </footer>
 
 </body>
