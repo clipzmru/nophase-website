@@ -31,12 +31,13 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative">
-    <img src="https://images.unsplash.com/photo-1593032465171-d4f0c5c19bc7?auto=format&fit=crop&w=1600&q=80" class="w-full h-screen object-cover" />
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-      <button onclick="openShop()" class="bg-black text-white px-6 py-3 rounded font-bold shadow-lg">View Shop</button>
-    </div>
-  </section>
+  <section class="relative h-screen w-full" style="background: url('/mnt/data/3633e8c2-ee18-4970-88d4-7b7c63fd0a90.png') center/cover no-repeat;">
+  <div class="flex items-center justify-center h-full w-full bg-black bg-opacity-50">
+    <button onclick="openShop()" class="bg-white text-black px-8 py-4 rounded font-bold text-xl hover:bg-gray-200 transition">
+      Shop Now
+    </button>
+  </div>
+</section>
 
   <!-- Shop Popup -->
   <div id="shop-popup" class="hidden fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
